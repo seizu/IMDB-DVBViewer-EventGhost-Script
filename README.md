@@ -1,7 +1,7 @@
 # IMDB-DVBViewer-EventGhost-Script
 EventGhost Python script for DVBViewer plugin. 
 
-The Python script tries to determine the IMDB rating based on the current channel EGP title
+The Python script tries to determine the IMDB rating based on the current channel EPG title
 and displays it on the screen.
 
 Installation
