@@ -7,7 +7,7 @@ max_titles = 3
 display_time = 10
 
 b_url = "https://www.imdb.com"
-s_url = "/find?q="
+s_url = "/find?s=tt&ref_=fn_al_tt_mr&q="
 dv = eg.plugins.DVBViewer
 
 result = dv.GetCurrentShowDetails()
