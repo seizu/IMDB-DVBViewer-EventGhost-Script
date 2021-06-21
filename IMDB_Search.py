@@ -36,7 +36,7 @@ if length > 0:
     for i in range(length):
         print m[i][0]
         title_page = urlopen(b_url + m[i][0]).read()
-        rating = re.findall('class="AggregateRatingButton__RatingScore.*?">(.*?)<', title_page)
+        rating = re.findall('itemprop="ratingValue">(.*?)<', title_page)
         if rating:
             out_str += m[i][1] + " " + m[i][2] + " " + rating[0] + "\n"
             
