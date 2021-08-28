@@ -3,11 +3,11 @@ from urllib import quote
 from urllib2 import urlopen
 
 #config
-max_titles = 3
+max_titles = 4
 display_time = 10
 
 b_url = "https://www.imdb.com"
-s_url = "/find?s=tt&ref_=fn_al_tt_mr&q="
+s_url = "/find?q="
 dv = eg.plugins.DVBViewer
 
 result = dv.GetCurrentShowDetails()
@@ -35,12 +35,18 @@ out_str = ""
 if length > 0:
     for i in range(length):
         print m[i][0]
+        genres_str = ""
         title_page = urlopen(b_url + m[i][0]).read()
+        genres_html = re.findall('<div class="ipc-chip-list.*?data-testid="genres">(.*?)</div>', title_page)
+        if genres_html:
+            genres = re.findall('"ipc-chip.*?presentation">(.*?)<', genres_html[0])
+            for gn in genres:
+                genres_str += gn + " "
         rating = re.findall('itemprop="ratingValue">(.*?)<', title_page)
         if not rating:
             rating = re.findall('class="AggregateRatingButton__RatingScore.*?">(.*?)<', title_page)
         if rating:
-            out_str += m[i][1] + " " + m[i][2] + " " + rating[0] + "\n"
+            out_str += m[i][1] + " " + m[i][2] + " " + rating[0] + " " + genres_str + "\n"
             
 if out_str != "":
     dv.ShowInfoinTVPic(out_str.decode('utf8','ignore'), display_time)
