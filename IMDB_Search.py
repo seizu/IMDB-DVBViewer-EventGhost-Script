@@ -42,9 +42,12 @@ if length > 0:
             genres = re.findall('"ipc-chip.*?presentation">(.*?)<', genres_html[0])
             for gn in genres:
                 genres_str += gn + " "
+        print genres_str
         rating = re.findall('itemprop="ratingValue">(.*?)<', title_page)
         if not rating:
             rating = re.findall('class="AggregateRatingButton__RatingScore.*?">(.*?)<', title_page)
+            if not rating:
+                rating = re.findall('class=".*?aggregate-rating__score.*?">.*?>(.*?)<', title_page)
         if rating:
             out_str += m[i][1] + " " + m[i][2] + " " + rating[0] + " " + genres_str + "\n"
             
