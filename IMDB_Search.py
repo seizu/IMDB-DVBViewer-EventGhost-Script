@@ -3,7 +3,9 @@ from urllib import quote
 import requests
 
 # settings ------------------------
-headers      = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0'}
+#language     = 'de-CH'
+language     = 'en-US'
+headers      = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:100.0) Gecko/20100101 Firefox/100.0','Accept-Language':language}
 max_titles   = 3
 display_time = 10
 b_url        = "https://www.imdb.com"
