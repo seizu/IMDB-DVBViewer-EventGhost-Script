@@ -9,7 +9,7 @@ headers      = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:100.
 max_titles   = 3
 display_time = 10
 b_url        = "https://www.imdb.com"
-s_url        = "/find?q="
+s_url        = "/find/?q="
 # ---------------------------------
 
 dv           = eg.plugins.DVBViewer
