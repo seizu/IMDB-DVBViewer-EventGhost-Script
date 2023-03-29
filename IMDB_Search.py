@@ -28,7 +28,7 @@ title = title.encode('utf8', 'ignore')
 title = quote(title)
 
 search_page = requests.get(b_url + s_url + title, headers=headers)
-m = re.findall('li class=".*?find-title-result.*?href="(/title/tt[0-9]{4,12}/).*?>(.*?)</a.*?([0-9]{4})</label>', search_page.content)
+m = re.findall('li class=".*?href="(/title/tt[0-9]{4,12}/).*?>(.*?)</a.*?([0-9]{4})</span>', search_page.content)
 
 length = len(m)
 if length > max_titles:
